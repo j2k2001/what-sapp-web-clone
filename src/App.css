@@ -7,3 +7,12 @@
 body {
     background-color : var(--color-bg-darkest);
 }
+a {
+    color: unset;
+    text-decoration: none;
+}
+.app{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}

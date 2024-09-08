@@ -1,10 +1,15 @@
 import React from 'react';
 import './leftpane.css';
+import {Searchbar} from '../../components';
+import Contactlist from '../contactlist/Contactlist';
+import Userinfo from '../userinfo/Userinfo';
 
 const Leftpane = () => {
   return (
-    <div>
-      leftpane
+    <div className='leftpanecontainer'>
+      <Userinfo></Userinfo>
+      <Searchbar></Searchbar>
+      <Contactlist></Contactlist>
     </div>
   )
 }

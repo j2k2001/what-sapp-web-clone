@@ -3,7 +3,7 @@ import './rightpane.css';
 
 const Rightpane = () => {
   return (
-    <div>
+    <div className='rightpanecontainer'>
       rightpane
     </div>
   )
