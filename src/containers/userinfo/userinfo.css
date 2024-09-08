@@ -7,6 +7,9 @@
     flex: 0 1 auto;
     display: flex;
     justify-content: space-around;
+    align-items: center;
+    gap: 21px;
+    margin-right: 21px;
 }
 .userinfoleftcontainer{
     display: flex;

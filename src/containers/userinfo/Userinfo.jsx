@@ -1,6 +1,6 @@
 import React from 'react';
 import './userinfo.css';
-import {Userphoto,Statusbutton,Darkmodebutton,Menubutton,Messagebutton} from '../../components';
+import {Userphoto,Darkmodebutton,Menubutton,Messagebutton} from '../../components';
 import {User} from '../../constant/connections';
 
 const Userinfo = () => {
@@ -10,7 +10,6 @@ const Userinfo = () => {
         <Userphoto imageUrl={User.profileImg}></Userphoto>
       </div>
       <div className="userinforightcontainer">
-        <Statusbutton></Statusbutton>
         <Darkmodebutton></Darkmodebutton>
         <Messagebutton></Messagebutton>
         <Menubutton></Menubutton>
