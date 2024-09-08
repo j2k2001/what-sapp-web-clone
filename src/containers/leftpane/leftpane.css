@@ -1,3 +1,5 @@
 .leftpanecontainer {
-    flex : 1 1 30%;
+    flex : 1 1 40%;
+    display: flex;
+    flex-direction: column;
 }

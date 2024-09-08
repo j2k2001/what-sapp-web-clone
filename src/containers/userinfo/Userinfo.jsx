@@ -3,7 +3,7 @@ import './userinfo.css';
 
 const Userinfo = () => {
   return (
-    <div>
+    <div className='userinfocontainer'>
       userinfo
     </div>
   )
