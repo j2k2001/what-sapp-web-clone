@@ -1,9 +1,10 @@
 import React from 'react'
 import {Leftpane,Rightpane} from './containers';
+import './App.css';
 
 const App = () => {
   return (
-    <div>
+    <div className='App'>
       <Leftpane></Leftpane>
       <Rightpane></Rightpane>
     </div>
