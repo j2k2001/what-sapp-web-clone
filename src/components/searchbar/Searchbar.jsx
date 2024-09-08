@@ -4,7 +4,10 @@ import './searchbar.css';
 const Searchbar = () => {
   return (
     <div className='searchbarcontainer'>
-      Searchbar
+      <form className='connectionsearchbar'>
+        <input type="text" 
+        placeholder='Search'/>
+      </form>
     </div>
   )
 }

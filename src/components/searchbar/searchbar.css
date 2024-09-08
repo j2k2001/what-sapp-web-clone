@@ -1,3 +1,21 @@
 .searchbarcontainer{
     flex: 1 1 5%;
+    display: flex;
+}
+.connectionsearchbar{
+    flex:1 1 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.connectionsearchbar input{
+    flex: 1 1 auto;
+    margin: 0 14px;
+    background-color: var(--color-bg-dark);
+    border: 0px;
+    height: 80%;
+    border-radius: 20px;
+    padding: 14px;
+    outline: none;
+    color: #aebac1;
 }
