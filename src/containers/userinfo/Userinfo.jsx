@@ -1,12 +1,13 @@
 import React from 'react';
 import './userinfo.css';
 import {Userphoto,Statusbutton,Darkmodebutton,Menubutton,Messagebutton} from '../../components';
+import {User} from '../../constant/connections';
 
 const Userinfo = () => {
   return (
     <div className='userinfocontainer'>
       <div className="userinfoleftcontainer">
-        <Userphoto></Userphoto>
+        <Userphoto imageUrl={User.profileImg}></Userphoto>
       </div>
       <div className="userinforightcontainer">
         <Statusbutton></Statusbutton>

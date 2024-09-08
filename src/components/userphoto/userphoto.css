@@ -1,0 +1,15 @@
+.selfimagecontainer{
+    flex: 0 1 auto;
+    margin: 0px 15px;
+}
+.selfimagebutton {
+    height :32px;
+    width :32px;
+    border-radius: 50%;
+    border-width: 0px;
+}
+.selfimage{
+    border-radius: 50%;
+    height: 32px;
+    width: 32px;
+}

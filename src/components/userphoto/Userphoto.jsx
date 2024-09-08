@@ -1,10 +1,12 @@
 import React from 'react';
 import './userphoto.css';
 
-const UserPhoto = () => {
+const UserPhoto = ({imageUrl}) => {
   return (
-    <div>
-      UserPhoto
+    <div className='selfimagecontainer'>
+      <button className="selfimagebutton">
+        <img src={imageUrl} className="selfimage" />
+      </button>
     </div>
   )
 }
