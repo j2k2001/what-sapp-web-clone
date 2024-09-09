@@ -4,12 +4,12 @@ import {Searchbar} from '../../components';
 import Contactlist from '../contactlist/Contactlist';
 import Userinfo from '../userinfo/Userinfo';
 
-const Leftpane = () => {
+const Leftpane = (props) => {
   return (
     <div className='leftpanecontainer'>
       <Userinfo></Userinfo>
       <Searchbar></Searchbar>
-      <Contactlist></Contactlist>
+      <Contactlist {...props}></Contactlist>
     </div>
   )
 }

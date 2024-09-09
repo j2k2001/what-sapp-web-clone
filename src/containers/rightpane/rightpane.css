@@ -1,3 +1,33 @@
 .rightpanecontainer {
     flex : 1 1 60%;
+    display: flex;
+    flex-direction: column;
+}
+.chatinfocontainer{
+    flex: 1 1 6%;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--color-bg-dark);
+}
+.chatinforightcontainer{
+    flex: 0 1 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 21px;
+    margin-right: 21px;
+}
+.chatinfoleftcontainer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex: 0 1 auto;
+    font-weight: 700;
+    color: var(--color-bg-offwhite);
+}
+.chatcontainer{
+    flex :1 1 88%;
+}
+.messageinputcontainer{
+    flex: 1 1 6%;
 }
