@@ -3,6 +3,7 @@ import './rightpane.css';
 import {CONNECTIONS} from '../../constant/connections';
 import { Userphoto } from '../../components';
 import {Emojibutton,Plussign,Microphonebutton} from '../../components';
+import { useState } from 'react';
 
 function Chatinfo({Chatter}) {
   return (
@@ -17,39 +18,55 @@ function Chatinfo({Chatter}) {
   );
 }
 
-function Chat() {
+function Chat({chatter,messages}) {
+  const chats=messages.filter((message)=>message.id===chatter.id);
+  const chatlistitems = chats.map((message)=><li className='messageaslistitems' key={message.timestamp}>{message.message}</li>)
   return (
     <div className="chatcontainer">
-      chat
+      <ul className="chatlist">
+        {chatlistitems}  
+      </ul>
     </div>
   );
 }
 
-const Inputmessage = () => {
+const Inputmessage = ({chatter,setMessages}) => {
+  const [inputMessage,setInputMessage] = useState('');
+  function handleOnSubmit(e){
+    e.preventDefault();
+    if(inputMessage.trim()==='') return ;
+    setMessages((messages)=>[
+      ...messages,{id:chatter.id,sendor:chatter.name,message:inputMessage,timestamp:Date.now()}
+    ]);
+    setInputMessage('');
+  }
+  function handleInputChange(e){
+    setInputMessage(e.target.value);
+  }
   return (
     <div className='inputmessagecontainer'>
-      <form className='inputmessageform'>
+      <form className='inputmessageform' onSubmit={handleOnSubmit}>
         <input type="text" 
-        placeholder='Type your text here'/>
+        placeholder='Type your text here' value={inputMessage} onChange={handleInputChange}/>
       </form>
     </div>
   )
 }
 
-function Messageinput() {
+function Messageinput({chatter,setMessages}) {
   return (
     <div className="messageinputcontainer">
       <Emojibutton /> 
       <Plussign />
       <div className='inputmessagecontainer'>
-        <Inputmessage />
+        <Inputmessage chatter={chatter} setMessages={setMessages}/>
       </div>
       <Microphonebutton />
     </div>
   );
 }
 
-function Chatwindow({selectedConvId}){
+function Chatwindow({selectedConvId,messages,setMessages}){
   const Chatters = CONNECTIONS.filter(person => {
     return person.id === selectedConvId;
   });
@@ -58,16 +75,16 @@ function Chatwindow({selectedConvId}){
   } else {
     return (
     <><Chatinfo Chatter={Chatters[0]} />
-    <Chat />
-    <Messageinput />
+    <Chat chatter={Chatters[0]} messages={messages} />
+    <Messageinput chatter={Chatters[0]} setMessages={setMessages}/>
     </>
     )
   }
 }
-const Rightpane = ({selectedConvId}) => {
+const Rightpane = ({selectedConvId,messages,setMessages}) => {
   return (
     <div className='rightpanecontainer'>
-      <Chatwindow selectedConvId={selectedConvId} />
+      <Chatwindow selectedConvId={selectedConvId} messages={messages} setMessages={setMessages} />
     </div>
   )
 }
