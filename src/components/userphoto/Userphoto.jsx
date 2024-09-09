@@ -1,11 +1,11 @@
 import React from 'react';
 import './userphoto.css';
 
-const UserPhoto = ({imageUrl}) => {
+const UserPhoto = ({imageUrl,size}) => {
   return (
     <div className='selfimagecontainer'>
-      <button className="selfimagebutton">
-        <img src={imageUrl} className="selfimage" />
+      <button className="selfimagebutton" style={{height:size,width:size}}>
+        <img src={imageUrl} className="selfimage" style={{height:size,width:size}} />
       </button>
     </div>
   )

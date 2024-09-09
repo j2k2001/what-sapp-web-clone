@@ -1,6 +1,8 @@
 .searchbarcontainer{
     flex: 1 1 5%;
     display: flex;
+    border-top: 0.25px solid var(--color-bg-dark);
+    border-bottom: 1px solid var(--color-bg-dark);
 }
 .connectionsearchbar{
     flex:1 1 auto;
