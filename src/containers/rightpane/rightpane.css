@@ -58,3 +58,6 @@
     color: var(--color-bg-offwhite);
     padding-left: 10px;
 }
+.chatcontainer{
+    background-image: url(../../assets/Whatsapp\ Chat\ Background.jpeg);
+}
