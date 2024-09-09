@@ -2,6 +2,7 @@ import React from 'react';
 import './rightpane.css';
 import {CONNECTIONS} from '../../constant/connections';
 import { Userphoto } from '../../components';
+import {Emojibutton,Plussign,Microphonebutton} from '../../components';
 
 function Chatinfo({Chatter}) {
   return (
@@ -24,10 +25,26 @@ function Chat() {
   );
 }
 
+const Inputmessage = () => {
+  return (
+    <div className='inputmessagecontainer'>
+      <form className='inputmessageform'>
+        <input type="text" 
+        placeholder='Type your text here'/>
+      </form>
+    </div>
+  )
+}
+
 function Messageinput() {
   return (
     <div className="messageinputcontainer">
-      messageinput
+      <Emojibutton /> 
+      <Plussign />
+      <div className='inputmessagecontainer'>
+        <Inputmessage />
+      </div>
+      <Microphonebutton />
     </div>
   );
 }
