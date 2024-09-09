@@ -60,4 +60,19 @@
 }
 .chatcontainer{
     background-image: url(../../assets/Whatsapp\ Chat\ Background.jpeg);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.chatlist{
+    list-style: none;
+}
+.messageaslistitems{
+    background-color: var(--color-bg-msg);
+    padding: 3px;
+    margin-right: 10px;
+    margin-bottom:10px;
+    border-radius: 5px;
+    max-width: 500px;
 }
