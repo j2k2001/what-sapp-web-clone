@@ -18,9 +18,20 @@ function Chatinfo({Chatter}) {
   );
 }
 
-function Chat({chatter,messages}) {
+function Message({messages,message,setMessages}){
+  function handleDelete(){
+    setMessages((messages)=>messages.filter((currmessage)=>currmessage!==message))
+  }
+  return (
+    <>
+      <li className="messageaslistitems" key={message.timestamp}>{message.message}<button onClick={handleDelete} className='deletebutton'>x</button></li>
+    </>
+  );
+}
+
+function Chat({chatter,messages,setMessages}) {
   const chats=messages.filter((message)=>message.id===chatter.id);
-  const chatlistitems = chats.map((message)=><li className='messageaslistitems' key={message.timestamp}>{message.message}</li>)
+  const chatlistitems = chats.map((message)=><Message message={message} messages={messages} setMessages={setMessages} />);
   return (
     <div className="chatcontainer">
       <ul className="chatlist">
@@ -75,7 +86,7 @@ function Chatwindow({selectedConvId,messages,setMessages}){
   } else {
     return (
     <><Chatinfo Chatter={Chatters[0]} />
-    <Chat chatter={Chatters[0]} messages={messages} />
+    <Chat chatter={Chatters[0]} messages={messages} setMessages={setMessages}/>
     <Messageinput chatter={Chatters[0]} setMessages={setMessages}/>
     </>
     )
