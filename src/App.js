@@ -17,6 +17,12 @@ const App = () => {
     return savedConnections ? JSON.parse(savedConnections) : [];
   }
 
+  const getInitialLastMessages = () => {
+    const savedLastMessages = localStorage.getItem("lastmessages");
+    return savedLastMessages ? JSON.parse(savedLastMessages) : [];
+  }
+
+  const [lastMessages,setLastMessages] = useState(getInitialLastMessages);
   const [selectedConvId,setSelectedConvId] = useState(null);
   const [messages,setMessages] = useState(getInitialMessages);
   const [connections,setConnections] = useState(getInitialConnections);
@@ -28,11 +34,15 @@ const App = () => {
   useEffect(() => {
     localStorage.setItem("connections",JSON.stringify(connections));
   },[connections]);
-  
+
+  useEffect(() => {
+    localStorage.setItem("lastmessages",JSON.stringify(lastMessages));
+  },[lastMessages])
+
   return (
     <div className='app'>
-      <Leftpane  setSelectedConvId={setSelectedConvId} connections={connections} setConnections={setConnections}></Leftpane>
-      <Rightpane selectedConvId={selectedConvId} messages={messages} setMessages={setMessages} connections={connections}></Rightpane>
+      <Leftpane  setSelectedConvId={setSelectedConvId} connections={connections} setConnections={setConnections} lastMessages={lastMessages}></Leftpane>
+      <Rightpane selectedConvId={selectedConvId} messages={messages} setMessages={setMessages} connections={connections} setLastMessages={setLastMessages}></Rightpane>
     </div>
   )
 }

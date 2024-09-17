@@ -48,7 +48,7 @@ function Chat({chatter,messages,setMessages,selectedConvId}) {
   );
 }
 
-const Inputmessage = ({chatter,setMessages}) => {
+const Inputmessage = ({chatter,setMessages,setLastMessages}) => {
   const [inputMessage,setInputMessage] = useState('');
   function handleOnSubmit(e){
     e.preventDefault();
@@ -56,6 +56,18 @@ const Inputmessage = ({chatter,setMessages}) => {
     setMessages((messages)=>[
       ...messages,{id:chatter.id,sendor:chatter.name,message:inputMessage,timestamp:Date.now()}
     ]);
+    setLastMessages((lastMessages)=>{
+      const intermediateLastMessages = lastMessages.filter((lastMessage)=>lastMessage.sendor!==chatter.name);
+      return [
+        ...intermediateLastMessages,
+        {
+          id: chatter.id,
+          sendor: chatter.name,
+          message: inputMessage,
+          timestamp: Date.now(),
+        },
+      ];
+    });
     setInputMessage('');
   }
   function handleInputChange(e){
@@ -71,20 +83,20 @@ const Inputmessage = ({chatter,setMessages}) => {
   )
 }
 
-function Messageinput({chatter,setMessages}) {
+function Messageinput({chatter,setMessages,setLastMessages}) {
   return (
     <div className="messageinputcontainer">
       <Emojibutton /> 
       <Plussign />
       <div className='inputmessagecontainer'>
-        <Inputmessage chatter={chatter} setMessages={setMessages}/>
+        <Inputmessage chatter={chatter} setMessages={setMessages} setLastMessages={setLastMessages}/>
       </div>
       <Microphonebutton />
     </div>
   );
 }
 
-function Chatwindow({selectedConvId,messages,setMessages,connections}){
+function Chatwindow({selectedConvId,messages,setMessages,connections,setLastMessages}){
   const Chatters = connections.filter(person => {
     return person.id === selectedConvId;
   });
@@ -93,16 +105,16 @@ function Chatwindow({selectedConvId,messages,setMessages,connections}){
   } else {
     return (
     <><Chatinfo Chatter={Chatters[0]} />
-    <Chat chatter={Chatters[0]} messages={messages} setMessages={setMessages} selectedConvId={selectedConvId}/>
-    <Messageinput chatter={Chatters[0]} setMessages={setMessages}/>
+    <Chat chatter={Chatters[0]} messages={messages} setMessages={setMessages} selectedConvId={selectedConvId} setLastMessages={setLastMessages}/>
+    <Messageinput chatter={Chatters[0]} setMessages={setMessages} setLastMessages={setLastMessages}/>
     </>
     )
   }
 }
-const Rightpane = ({selectedConvId,messages,setMessages,connections}) => {
+const Rightpane = ({selectedConvId,messages,setMessages,connections,setLastMessages}) => {
   return (
     <div className='rightpanecontainer'>
-      <Chatwindow selectedConvId={selectedConvId} messages={messages} setMessages={setMessages} connections={connections} />
+      <Chatwindow selectedConvId={selectedConvId} messages={messages} setMessages={setMessages} connections={connections} setLastMessages={setLastMessages} />
     </div>
   )
 }
