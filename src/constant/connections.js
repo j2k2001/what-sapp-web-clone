@@ -1,3 +1,4 @@
+export const profileImg = "https://fastly.picsum.photos/id/297/200/300.jpg?hmac=SF0Y51mRP7i6CoLBIuliqQwDIUJNyf63_r3xhamVSLE";
 export const CONNECTIONS = [
   {
     id: "user_id_1",

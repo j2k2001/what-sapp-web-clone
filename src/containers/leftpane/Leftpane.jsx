@@ -8,7 +8,7 @@ const Leftpane = (props) => {
   return (
     <div className='leftpanecontainer'>
       <Userinfo></Userinfo>
-      <Searchbar></Searchbar>
+      <Searchbar setConnections={props.setConnections}></Searchbar>
       <Contactlist {...props}></Contactlist>
     </div>
   )

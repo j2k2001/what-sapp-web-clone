@@ -1,8 +1,5 @@
 .contactlistcontainer{
     flex: 1 1 89%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 .connectionslab{
     display: flex;

@@ -20,7 +20,7 @@ function Connectioncomp({person,setSelectedConvId}) {
 
 const Contactlist = ({setSelectedConvId,connections,setConnections}) => {
   const listNodes = connections.map(person => {
-    return (<Connectioncomp person={person} setSelectedConvId={setSelectedConvId}/>);
+    return (<Connectioncomp key={person.id} person={person} setSelectedConvId={setSelectedConvId}/>);
   });
   if(listNodes.length===0){
     return <div className="contactlistcontainer"><div className="noconvyet">No Conversation Yet</div></div>;
