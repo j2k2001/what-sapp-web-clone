@@ -23,5 +23,5 @@
     white-space: nowrap;
 }
 .connectioninfo{
-    max-width: 80%;
+    max-width: calc(100% - 80px);
 }
