@@ -26,7 +26,7 @@ function Connectioncomp({person,setSelectedConvId,lastMessages}) {
       <>
         <li key={person.id} className='connectionslab' onClick={() => handleClick(person.id)}>
         <Userphoto imageUrl={person.profileImg} size={48} />
-        <div className="connectioninfo">{person.name} <br /><span className="truncatelastmessage">{lastMessage[0].message}</span></div>
+        <div className="connectioninfo">{person.name} <br /><span className="truncatelastmessage" title={lastMessage[0].message}>{lastMessage[0].message}</span></div>
         </li>
       </>
     );

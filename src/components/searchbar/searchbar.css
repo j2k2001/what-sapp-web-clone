@@ -24,4 +24,8 @@
 .startnewchatbutton{
     margin: 7px;
     border-radius: 5px;
+    background-color: var(--color-bg-dark);
+    color: var(--color-bg-offwhite);
+    border-width: 0px;
+    padding: 3px;
 }
