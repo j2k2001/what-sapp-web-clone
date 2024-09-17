@@ -27,6 +27,7 @@
 }
 .chatcontainer{
     flex :1 1 88%;
+    max-height: 88%;
 }
 .messageinputcontainer{
     flex: 1 1 6%;
@@ -67,6 +68,8 @@
 }
 .chatlist{
     list-style: none;
+    overflow-y: auto;
+    max-height: 100%;
 }
 .messageaslistitems{
     background-color: var(--color-bg-msg);
