@@ -14,3 +14,14 @@
     color: var(--color-bg-offwhite);
     text-align: center;
 }
+.truncatelastmessage{
+    font-size: 14px;
+    display: inline-block;
+    max-width: 100%;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    white-space: nowrap;
+}
+.connectioninfo{
+    max-width: 80%;
+}
