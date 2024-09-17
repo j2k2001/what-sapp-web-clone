@@ -21,6 +21,7 @@
     text-overflow: ellipsis;
     overflow-x: hidden;
     white-space: nowrap;
+    color:#a0a8ad5d;
 }
 .connectioninfo{
     max-width: calc(100% - 80px);
