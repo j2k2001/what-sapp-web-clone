@@ -8,6 +8,7 @@ const Searchbar = () => {
         <input type="text" 
         placeholder='Search'/>
       </form>
+      <button className="startnewchatbutton">New Chat</button>
     </div>
   )
 }

@@ -6,9 +6,10 @@ import { useState } from 'react';
 const App = () => {
   const [selectedConvId,setSelectedConvId] = useState(null);
   const [messages,setMessages] = useState([]);
+  const [connections,setConnections] = useState([]);
   return (
     <div className='app'>
-      <Leftpane  setSelectedConvId={setSelectedConvId}></Leftpane>
+      <Leftpane  setSelectedConvId={setSelectedConvId} connections={connections} setConnections={setConnections}></Leftpane>
       <Rightpane selectedConvId={selectedConvId} messages={messages} setMessages={setMessages}></Rightpane>
     </div>
   )
