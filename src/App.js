@@ -10,7 +10,7 @@ const App = () => {
   return (
     <div className='app'>
       <Leftpane  setSelectedConvId={setSelectedConvId} connections={connections} setConnections={setConnections}></Leftpane>
-      <Rightpane selectedConvId={selectedConvId} messages={messages} setMessages={setMessages}></Rightpane>
+      <Rightpane selectedConvId={selectedConvId} messages={messages} setMessages={setMessages} connections={connections}></Rightpane>
     </div>
   )
 }

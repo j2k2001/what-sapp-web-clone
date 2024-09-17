@@ -77,8 +77,8 @@ function Messageinput({chatter,setMessages}) {
   );
 }
 
-function Chatwindow({selectedConvId,messages,setMessages}){
-  const Chatters = CONNECTIONS.filter(person => {
+function Chatwindow({selectedConvId,messages,setMessages,connections}){
+  const Chatters = connections.filter(person => {
     return person.id === selectedConvId;
   });
   if(Chatters.length === 0){
@@ -92,10 +92,10 @@ function Chatwindow({selectedConvId,messages,setMessages}){
     )
   }
 }
-const Rightpane = ({selectedConvId,messages,setMessages}) => {
+const Rightpane = ({selectedConvId,messages,setMessages,connections}) => {
   return (
     <div className='rightpanecontainer'>
-      <Chatwindow selectedConvId={selectedConvId} messages={messages} setMessages={setMessages} />
+      <Chatwindow selectedConvId={selectedConvId} messages={messages} setMessages={setMessages} connections={connections} />
     </div>
   )
 }
