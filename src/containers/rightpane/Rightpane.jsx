@@ -4,6 +4,8 @@ import {CONNECTIONS} from '../../constant/connections';
 import { Userphoto } from '../../components';
 import {Emojibutton,Plussign,Microphonebutton} from '../../components';
 import { useState ,useRef} from 'react';
+import { MdDelete } from "react-icons/md";
+import { MdEdit } from "react-icons/md";
 
 function Chatinfo({Chatter}) {
   return (
@@ -22,9 +24,15 @@ function Message({messages,message,setMessages}){
   function handleDelete(){
     setMessages((messages)=>messages.filter((currmessage)=>currmessage!==message))
   }
+  function handleEdit(){
+    let userInput = prompt("New Text");
+    setMessages((mess)=>{
+      return mess.map((mess1)=>{return mess1.timestamp===message.timestamp?{...mess1,message:userInput}:mess1});
+    });
+  }
   return (
     <>
-      <li className="messageaslistitems" key={message.timestamp}>{message.message}<button onClick={handleDelete} className='deletebutton'>x</button></li>
+      <li className="messageaslistitems" key={message.timestamp}>{message.message}<MdDelete size={20} onClick={handleDelete} className='deletebutton'>x</MdDelete><MdEdit size={20} onClick={handleEdit} className='deletebutton' /></li>
     </>
   );
 }
