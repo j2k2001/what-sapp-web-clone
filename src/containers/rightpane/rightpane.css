@@ -28,6 +28,7 @@
 .chatcontainer{
     flex :1 1 88%;
     max-height: 88%;
+    overflow-y: auto;
 }
 .messageinputcontainer{
     flex: 1 1 6%;

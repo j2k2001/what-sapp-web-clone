@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './rightpane.css';
 import {CONNECTIONS} from '../../constant/connections';
 import { Userphoto } from '../../components';
 import {Emojibutton,Plussign,Microphonebutton} from '../../components';
-import { useState } from 'react';
+import { useState ,useRef} from 'react';
 
 function Chatinfo({Chatter}) {
   return (
@@ -30,12 +30,19 @@ function Message({messages,message,setMessages}){
 }
 
 function Chat({chatter,messages,setMessages}) {
+  const bottomRef =useRef(null);
+  useEffect(()=>{
+    if(bottomRef.current){
+      bottomRef.current.scrollIntoView();
+    }
+  },[messages]);
   const chats=messages.filter((message)=>message.id===chatter.id);
   const chatlistitems = chats.map((message)=><Message message={message} messages={messages} setMessages={setMessages} />);
   return (
     <div className="chatcontainer">
       <ul className="chatlist">
         {chatlistitems}  
+        <div className="bottomref" ref={bottomRef}></div>
       </ul>
     </div>
   );
