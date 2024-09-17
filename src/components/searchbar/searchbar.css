@@ -28,4 +28,5 @@
     color: var(--color-bg-offwhite);
     border-width: 0px;
     padding: 3px;
+    cursor: pointer;
 }
