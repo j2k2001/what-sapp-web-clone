@@ -29,13 +29,13 @@ function Message({messages,message,setMessages}){
   );
 }
 
-function Chat({chatter,messages,setMessages}) {
+function Chat({chatter,messages,setMessages,selectedConvId}) {
   const bottomRef =useRef(null);
   useEffect(()=>{
     if(bottomRef.current){
       bottomRef.current.scrollIntoView();
     }
-  },[messages]);
+  },[messages,selectedConvId]);
   const chats=messages.filter((message)=>message.id===chatter.id);
   const chatlistitems = chats.map((message)=><Message message={message} messages={messages} setMessages={setMessages} />);
   return (
@@ -93,7 +93,7 @@ function Chatwindow({selectedConvId,messages,setMessages,connections}){
   } else {
     return (
     <><Chatinfo Chatter={Chatters[0]} />
-    <Chat chatter={Chatters[0]} messages={messages} setMessages={setMessages}/>
+    <Chat chatter={Chatters[0]} messages={messages} setMessages={setMessages} selectedConvId={selectedConvId}/>
     <Messageinput chatter={Chatters[0]} setMessages={setMessages}/>
     </>
     )
