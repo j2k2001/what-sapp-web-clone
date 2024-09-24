@@ -6,6 +6,7 @@ import {Emojibutton,Plussign,Microphonebutton} from '../../components';
 import { useState ,useRef} from 'react';
 import { MdDelete } from "react-icons/md";
 import { MdEdit } from "react-icons/md";
+import {Modalcomponent} from '../../components';
 
 function Chatinfo({Chatter}) {
   return (
@@ -21,8 +22,13 @@ function Chatinfo({Chatter}) {
 }
 
 function Message({messages,message,setMessages}){
+  const [modalToShow,setModalToShow] = useState(null);
+  function showDelete(){
+    setModalToShow("delete");
+  }
   function handleDelete(){
-    setMessages((messages)=>messages.filter((currmessage)=>currmessage!==message))
+    setMessages((messages)=>messages.filter((currmessage)=>currmessage!==message));
+    setModalToShow(null);
   }
   function handleEdit(){
     let userInput = prompt("New Text");
@@ -32,7 +38,8 @@ function Message({messages,message,setMessages}){
   }
   return (
     <>
-      <li className="messageaslistitems" key={message.timestamp}>{message.message}<MdDelete size={20} onClick={handleDelete} className='deletebutton'>x</MdDelete><MdEdit size={20} onClick={handleEdit} className='deletebutton' /></li>
+      {modalToShow==="delete"&&<Modalcomponent header="Are you sure ?" button1="Delete" button2="Cancel" button1f={handleDelete}/>}
+      <li className="messageaslistitems" key={message.timestamp}>{message.message}<MdDelete size={20} onClick={showDelete} className='deletebutton'>x</MdDelete><MdEdit size={20} onClick={handleEdit} className='deletebutton' /></li>
     </>
   );
 }
