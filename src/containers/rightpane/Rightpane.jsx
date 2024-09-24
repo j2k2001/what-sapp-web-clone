@@ -6,7 +6,7 @@ import {Emojibutton,Plussign,Microphonebutton} from '../../components';
 import { useState ,useRef} from 'react';
 import { MdDelete } from "react-icons/md";
 import { MdEdit } from "react-icons/md";
-import {Modalcomponent} from '../../components';
+import {Modalcomponent,Modalcomponent1} from '../../components';
 
 function Chatinfo({Chatter}) {
   return (
@@ -33,16 +33,20 @@ function Message({messages,message,setMessages}){
   function handleCancel(){
     setModalToShow(null);
   }
-  function handleEdit(){
-    let userInput = prompt("New Text");
+  function handleEdit(userInput){
     setMessages((mess)=>{
       return mess.map((mess1)=>{return mess1.timestamp===message.timestamp?{...mess1,message:userInput}:mess1});
     });
+    setModalToShow(null);
+  }
+  function showEdit(){
+    setModalToShow("edit");
   }
   return (
     <>
-      {modalToShow==="delete"&&<Modalcomponent header="Are you sure ?" button1="Delete" button2="Cancel" button1f={handleDelete} button2f={handleCancel}/>}
-      <li className="messageaslistitems" key={message.timestamp}>{message.message}<MdDelete size={20} onClick={showDelete} className='deletebutton'>x</MdDelete><MdEdit size={20} onClick={handleEdit} className='deletebutton' /></li>
+      {modalToShow==="delete"&&<Modalcomponent header="Are you sure ?" button1="Delete" button2="Cancel" button1f={handleDelete} button2f={handleCancel}/>};
+      {modalToShow==="edit"&&<Modalcomponent1 placeholdertext="New Text" button1="Edit" button2="Cancel" button1f={handleEdit} button2f={handleCancel}/>};
+      <li className="messageaslistitems" key={message.timestamp}>{message.message}<MdDelete size={20} onClick={showDelete} className='deletebutton'>x</MdDelete><MdEdit size={20} onClick={showEdit} className='deletebutton' /></li>
     </>
   );
 }
