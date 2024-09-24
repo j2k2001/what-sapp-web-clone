@@ -40,10 +40,12 @@ const App = () => {
   },[lastMessages])
 
   return (
+    <>
     <div className='app'>
       <Leftpane  setSelectedConvId={setSelectedConvId} connections={connections} setConnections={setConnections} lastMessages={lastMessages}></Leftpane>
       <Rightpane selectedConvId={selectedConvId} messages={messages} setMessages={setMessages} connections={connections} setLastMessages={setLastMessages}></Rightpane>
     </div>
+    </>
   )
 }
 

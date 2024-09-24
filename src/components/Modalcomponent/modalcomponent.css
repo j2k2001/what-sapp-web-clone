@@ -1,0 +1,38 @@
+.modalcomponentcontainer{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  background-color: rgba(0,0,0,0.6);
+}
+.modalcomponentinnercontainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg-dark);
+  padding: 15px;
+  border-radius: 5px;
+}
+.buttoncontainerinmodal{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  padding: 5px;
+}
+.modalbutton{
+    margin: 7px;
+    border-radius: 5px;
+    background-color: var(--color-bg-darkest);
+    color: var(--color-bg-offwhite);
+    border-width: 0px;
+    padding: 3px;
+    cursor: pointer;
+}

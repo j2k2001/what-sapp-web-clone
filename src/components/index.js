@@ -7,3 +7,4 @@ export { default as Messagebutton } from './messagebutton/Messagebutton';
 export { default as Emojibutton} from './emojibutton/Emojibutton';
 export { default as Plussign } from './plussign/Plussign';
 export { default as Microphonebutton } from './microphonebutton/Microphonebutton';
+export { default as Modalcomponent } from './Modalcomponent/Modalcomponent';
