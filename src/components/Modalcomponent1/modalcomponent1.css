@@ -36,3 +36,14 @@
     padding: 3px;
     cursor: pointer;
 }
+.inputmessagecontainer{
+    background-color: var(--color-bg-darkest);
+    flex-grow: 1;
+    outline: none;
+    border: 1px;
+    border-radius: 5px;
+    height: 33px;
+    color: var(--color-bg-offwhite);
+    padding-left: 10px;
+    border-color: var(--color-bg-darkest);
+}
