@@ -1,21 +1,25 @@
 import React from 'react';
 import './searchbar.css';
 import { profileImg } from '../../constant/connections';
+import { useState } from 'react';
+import {Modalcomponent1} from '../../components';
 
 const Newchatbutton = ({setConnections}) => {
+  const [newChatModalOpen,setNewChatModalOpen] = useState(false);
   function handleclick(){
-    let userInput = prompt("User");
-    if(userInput!==null){
-      setConnections((connections)=>[...connections,{id:Date.now(),name:userInput,profileImg:profileImg}])
-    }
+    setNewChatModalOpen(true);
   }
   return (
-    <><button className="startnewchatbutton" onClick={handleclick}>New Chat</button></>
+    <>
+      {newChatModalOpen&&<Modalcomponent1 placeholdertext="New User" button1="Add" button2="Cancel" /> }
+      <button className="startnewchatbutton" onClick={handleclick}>New Chat</button>
+    </>
   );
 }
 
 const Searchbar = ({setConnections}) => {
   return (
+    <>
     <div className='searchbarcontainer'>
       <form className='connectionsearchbar'>
         <input type="text" 
@@ -23,6 +27,7 @@ const Searchbar = ({setConnections}) => {
       </form>
       <Newchatbutton setConnections={setConnections}/>
     </div>
+    </>
   )
 }
 
