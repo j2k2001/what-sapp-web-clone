@@ -30,6 +30,9 @@ function Message({messages,message,setMessages}){
     setMessages((messages)=>messages.filter((currmessage)=>currmessage!==message));
     setModalToShow(null);
   }
+  function handleCancel(){
+    setModalToShow(null);
+  }
   function handleEdit(){
     let userInput = prompt("New Text");
     setMessages((mess)=>{
@@ -38,7 +41,7 @@ function Message({messages,message,setMessages}){
   }
   return (
     <>
-      {modalToShow==="delete"&&<Modalcomponent header="Are you sure ?" button1="Delete" button2="Cancel" button1f={handleDelete}/>}
+      {modalToShow==="delete"&&<Modalcomponent header="Are you sure ?" button1="Delete" button2="Cancel" button1f={handleDelete} button2f={handleCancel}/>}
       <li className="messageaslistitems" key={message.timestamp}>{message.message}<MdDelete size={20} onClick={showDelete} className='deletebutton'>x</MdDelete><MdEdit size={20} onClick={handleEdit} className='deletebutton' /></li>
     </>
   );
